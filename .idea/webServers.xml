@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0dd82208-cdaa-4623-ab34-725f3538aa3d" name="Thinklab">
+        <fileTransfer rootFolder="/mnt/nas/home/guojinpei" accessType="SFTP" host="202.120.39.51" port="53000" sshConfigId="08fe3a6b-466f-4bee-aaeb-0629bd01eba6" sshConfig="guojinpei@202.120.39.51:53000 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
