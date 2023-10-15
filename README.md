@@ -4,10 +4,12 @@ This repository contains the source code to reproduce the experiments in the pap
 <img src="figures/pipeline.png" width="600">
 
 ## Setup
-We use the environments in [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch).
+
+### Environment
+We use the environments recommended in [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch).
 You can also see more details in [ThinkMatch-runtime](https://github.com/Thinklab-SJTU/ThinkMatch-runtime).
 
-## Data
+### Data
 
 1. PascalVOC-Keypoint
 
@@ -28,7 +30,7 @@ Our code also supports [Willow-Object-Class](http://www.di.ens.fr/willow/researc
 and [IMC-PT-SparseGM](https://drive.google.com/file/d/1C3xl_eWaCG3lL2C3vP8Fpsck88xZOHtg/view?usp=sharing) datasets, 
 please refer to [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch) for more deatails.
 
-## Pretrained Backbones
+### Pretrained Backbones
 Please download the pretrained parameters for GMT, ViT, CeiT and XCiT backbones from [google drive](https://drive.google.com/drive/folders/1HjiYZUDJt3MN1SHsjEzanIN8vOVetDec?usp=drive_link) 
 and make sure it looks like ``experiments/pretrained``
 
@@ -58,7 +60,7 @@ We support the following choices:
 ```
 We also provide the yaml files including GMT and ViT backbones with NGMv2 and BBGM frameworks on Willow-Object-Class dataset.
 
-For other backbones on Willow-Object-Class, CUB2011, IMC-PT-SparseGM datasets, please download the corresponding yaml files from [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch).
+For other frameworks and datasets, please download the corresponding yaml files from [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch).
 
 ### GMTR
 To evaluate the performance of attention module in GMTR, please use the yaml file with name ``gmt_ngmv2_[dataset]`` and turn on the switch in the file:
