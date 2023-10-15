@@ -73,7 +73,7 @@ class Net(GMT):
 
 
         if cfg.ATTN.SWITCH == True:
-            self.classifier = nn.Linear(cfg.NGM.GNN_FEAT[-1] + cfg.NGM.SK_EMB, 1)
+            self.classifier = nn.Linear(cfg.ATTN.OUT_DIM[-1] + cfg.ATTN.SK_EMB, 1)
         else:
             self.classifier = nn.Linear(cfg.NGM.GNN_FEAT[-1] + cfg.NGM.SK_EMB, 1)
 

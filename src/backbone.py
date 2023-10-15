@@ -198,7 +198,7 @@ class Ceit_base(nn.Module):
 
         # self.default_cfg = _cfg()
         #--------------------------load parameters - -----------------------------------------------
-        state_dict = torch.load('./experiments/ThinkMatchPretrained/ceit_base_patch16_224_150epochs/checkpoint.pth')
+        state_dict = torch.load('./experiments/pretrained/ceit_base.pth')
         print(self.transformer.load_state_dict(state_dict['model'], strict=False))
         # -----------------------------------------------------------------------------------------
         self.backbone_params = list(self.transformer.parameters())
@@ -215,7 +215,7 @@ class Xcit_medium(nn.Module):
         norm_layer=partial(nn.LayerNorm, eps=1e-6), eta=1e-5, tokens_norm=True)
 
         # --------------------------load parameters for base ViT version 2--------------------------
-        weights_dict = torch.load('./experiments/ThinkMatchPretrained/xcit_medium_24_p16_224.pth')
+        weights_dict = torch.load('./experiments/pretrained/xcit_medium.pth')
 
         print(self.transformer.load_state_dict(weights_dict['model'], strict=False))
         # ------------------------------------------------------------------------------------------
@@ -239,7 +239,7 @@ class Vit_small(nn.Module):
         self.backbone_params = list(self.transformer.parameters())
 
         # --------------------------load parameters for small ViT--------------------------
-        weights_dict = torch.load('./experiments/ThinkMatchPretrained/deit_small_patch16_224.pth')
+        weights_dict = torch.load('./experiments/pretrained/vit_small.pth')
         weights_dict['model']['fc_norm.weight'] = weights_dict['model']['norm.weight']
         weights_dict['model']['fc_norm.bias'] = weights_dict['model']['norm.bias']
 
@@ -266,7 +266,7 @@ class Vit_base(nn.Module):
         self.backbone_params = list(self.transformer.parameters())
 
         # --------------------------load parameters for base ViT-----------------------------------
-        weights_dict = torch.load('./experiments/ThinkMatchPretrained/mae_finetuned_vit_base.pth')
+        weights_dict = torch.load('./experiments/pretrained/vit_base.pth')
         del weights_dict['model']['head.weight']
         del weights_dict['model']['head.bias']
         print(self.transformer.load_state_dict(weights_dict['model'], strict=False))
@@ -289,7 +289,7 @@ class Gmt_small(nn.Module):
         self.backbone_params = list(self.gmt.parameters())
 
         # --------------------------load parameters for small ViT--------------------------
-        weights_dict = torch.load('./experiments/ThinkMatchPretrained/deit_small_patch16_224.pth')
+        weights_dict = torch.load('./experiments/pretrained/vit_small.pth')
         weights_dict['model']['fc_norm.weight'] = weights_dict['model']['norm.weight']
         weights_dict['model']['fc_norm.bias'] = weights_dict['model']['norm.bias']
 
@@ -315,7 +315,7 @@ class Gmt_base(nn.Module):
         self.backbone_params = list(self.gmt.parameters())
 
         # --------------------------load parameters for base Gmt--------------------------
-        weights_dict = torch.load('./experiments/ThinkMatchPretrained/mae_finetuned_vit_base.pth')
+        weights_dict = torch.load('./experiments/pretrained/vit_base.pth')
         del weights_dict['model']['head.weight']
         del weights_dict['model']['head.bias']
         print(self.gmt.load_state_dict(weights_dict['model'], strict=False))

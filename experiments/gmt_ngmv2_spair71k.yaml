@@ -82,8 +82,9 @@ NGM:
   EDGE_EMB: False
 
 ATTN:
-  SWITCH: True
+  SWITCH: False
   DEPTH: 3
+  SK_EMB: 1
   HEAD:
     - 1
     - 1

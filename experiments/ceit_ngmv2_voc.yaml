@@ -1,11 +1,11 @@
-MODEL_NAME: gmt_small_ngmv2
-DATASET_NAME: spair71k
+MODEL_NAME: ceit_ngmv2
+DATASET_NAME: voc
 
-DATASET_FULL_NAME: SPair71k
+DATASET_FULL_NAME: PascalVOC
 
-MODULE: models.GMT_NGM.model_v2
+MODULE: models.Transformer_NGM.model_v2
 
-BACKBONE: Gmt_small
+BACKBONE: Ceit_base
 
 BATCH_SIZE: 8
 DATALOADER_NUM: 2
@@ -13,11 +13,12 @@ FP16: False
 
 RANDOM_SEED: 123
 
-# PRETRAINED_PATH: ThinkMatchPretrained/pretrained_params_vgg16_ngmv2_spair71k.pt
+# PRETRAINED_PATH: ThinkMatchPretrained/pretrained_params_vgg16_ngmv2_voc.pt
 
 # available GPU ids
 GPUS:
   - 0
+#  - 1
 
 # Problem configuration
 PROBLEM:
@@ -37,16 +38,18 @@ GRAPH:
 TRAIN:
   # start, end epochs
   START_EPOCH: 0
-  NUM_EPOCHS: 25
+  NUM_EPOCHS: 20
+  ENTROPY_ALPHA: 0.95
+  ENTROPY_GAMMA: 0.5
 
-  LOSS_FUNC: perm
+  LOSS_FUNC: entropyperm # obj
 
   OPTIMIZER: Adam
 
   # learning rate
-  LR: 1.e-3 # 2.e-3
+  LR: 2.e-3
   SEPARATE_BACKBONE_LR: True
-  BACKBONE_LR: 1.e-5
+  BACKBONE_LR: 2.e-5
   MOMENTUM: 0.9
   LR_DECAY: 0.5
   LR_STEP:  # (in epochs)
@@ -54,20 +57,22 @@ TRAIN:
     - 4
     - 6
     - 8
+    - 10
+    - 12
 
-  EPOCH_ITERS: 500 # iterations per epoch
+  EPOCH_ITERS: 2000  # iterations per epoch
 
   CLASS: none
 
 # Evaluation settings
 EVAL:
-  EPOCH: 7  # epoch to be tested
+  EPOCH: 30  # epoch to be tested
   SAMPLES: 1000  # number of tested pairs for each class
 
 # model parameters
 NGM:
   EDGE_FEATURE: cat
-  FEATURE_CHANNEL: 384
+  FEATURE_CHANNEL: 768
   SK_ITER_NUM: 20
   SK_EPSILON: 1.0e-10
   SK_TAU: 0.05
@@ -80,27 +85,3 @@ NGM:
   SK_EMB: 1
   FIRST_ORDER: True
   EDGE_EMB: False
-
-ATTN:
-  SWITCH: False
-  DEPTH: 3
-  SK_EMB: 1
-  HEAD:
-    - 1
-    - 1
-    - 2
-  IN_DIM:
-    - 1
-    - 16
-    - 16
-  OUT_DIM:
-    - 16
-    - 16
-    - 16
-
-GMT:
-  MODE: node filter + edge bilinear
-  FILTER_LOW: 11
-  FILTER_HIGH: 12
-  BILINEAR_LOW: 11
-  BILINEAR_HIGH: 12

@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="0dd82208-cdaa-4623-ab34-725f3538aa3d" name="Thinklab">
-        <fileTransfer rootFolder="/mnt/nas/home/guojinpei" accessType="SFTP" host="202.120.39.51" port="53000" sshConfigId="08fe3a6b-466f-4bee-aaeb-0629bd01eba6" sshConfig="guojinpei@202.120.39.51:53000 password">
+        <fileTransfer rootFolder="/mnt/nas/home/guojinpei" accessType="SFTP" host="202.120.39.51" port="64000" sshConfigId="0c4bb22a-eed7-4213-bd4f-75b2a70f45b8" sshConfig="guojinpei@202.120.39.51:64000 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
