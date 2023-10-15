@@ -35,6 +35,7 @@ and make sure it looks like ``experiments/pretrained``
 ## Experiments
 Please place all the yaml files in the ``experiments`` directory.
 
+### Backbones
 If you have already built the singularity with docker image, use the following command:
 ```angular2html
 singularity exec \
@@ -51,10 +52,17 @@ python train_eval.py --cfg experiments/[backbone]_[framework]_[dataset].yaml
 
 We support the following choices:
 ```angular2html
-[backbone]: vgg16, resnet34, gmt, gmt_small, vit, vit_small, ceit, xcit
+[backbone]: vgg16, resnet34, gmt, vit, ceit, xcit
 [framework]: ngmv2, bbgm
 [dataset]: voc, spair71k
 ```
 We also provide the yaml files including GMT and ViT backbones with NGMv2 and BBGM frameworks on Willow-Object-Class dataset.
 
 For other backbones on Willow-Object-Class, CUB2011, IMC-PT-SparseGM datasets, please download the corresponding yaml files from [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch).
+
+### GMTR
+To evaluate the performance of attention module in GMTR, please use the yaml file with name ``gmt_ngmv2_[dataset]`` and turn on the switch in the file:
+```
+ATTN:
+  SWITCH: True
+```
