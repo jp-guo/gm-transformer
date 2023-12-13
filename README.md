@@ -31,8 +31,8 @@ and [IMC-PT-SparseGM](https://drive.google.com/file/d/1C3xl_eWaCG3lL2C3vP8Fpsck8
 please refer to [ThinkMatch](https://github.com/Thinklab-SJTU/ThinkMatch) for more deatails.
 
 ### Pretrained Backbones
-Please download the pretrained parameters for GMT, ViT, CeiT and XCiT backbones from [google drive](https://drive.google.com/drive/folders/1HjiYZUDJt3MN1SHsjEzanIN8vOVetDec?usp=drive_link) 
-and make sure it looks like ``experiments/pretrained``
+Please download the pretrained parameters for backbones from [google drive](https://drive.google.com/drive/folders/1HjiYZUDJt3MN1SHsjEzanIN8vOVetDec?usp=drive_link) 
+and place them in ``experiments/pretrained``.
 
 ## Experiments
 Please place all the yaml files in the ``experiments`` directory.
@@ -47,7 +47,7 @@ singularity exec \
      bash -c "CUDA_VISIBLE_DEVICES=0 python train_eval.py --cfg experiments/[backbone]_[framework]_[dataset].yaml"
 ```
 
-Or if you have prepared your environments in other ways (e.g. conda), you can run
+Or if you have prepared your environments in other ways (e.g. conda), simply run
 ```angular2html
 python train_eval.py --cfg experiments/[backbone]_[framework]_[dataset].yaml
 ```
