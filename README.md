@@ -1,5 +1,5 @@
 # Graph Matching Transformers
-Official implementation of ICASSP 2024 paper: "[GMTR: Graph Matching Transformers](https://arxiv.org/abs/2311.08141)".
+Official implementation of **ICASSP 2024** paper: "[GMTR: Graph Matching Transformers](https://arxiv.org/abs/2311.08141)".
 
 Authors: Jinpei Guo, Shaofeng Zhang, Runzhong Wang, Chang Liu, Junchi Yan
 
